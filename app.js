@@ -5,6 +5,7 @@ function agregarAmigo() {
 
   if (entradaAmigo) {
     amigos.push(entradaAmigo);
+    agregarAmigoLista();
     limpiarInput();
   } else {
     alert("Por favor, inserte un nombre");
@@ -14,5 +15,17 @@ function agregarAmigo() {
 
 function limpiarInput() {
   document.getElementById("amigo").value = "";
+  return;
+}
+
+function agregarAmigoLista() {
+  let listaAmigos = document.getElementById("listaAmigos");
+  listaAmigos.innerHTML = "";
+
+  for (let i = 0; i < amigos.length; i++) {
+    let elementoLista = document.createElement("li");
+    elementoLista.textContent = amigos[i];
+    listaAmigos.appendChild(elementoLista);
+  }
   return;
 }
